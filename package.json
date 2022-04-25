@@ -4,12 +4,16 @@
   "description": "Bot de discord con diferentes funciones. Basado en nodeJs, con la lib de discord.js",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app"
   },
   "author": "BanKing",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

@@ -1,27 +1,18 @@
-const { Client, Intents } = require('discord.js');
-require('dotenv').config()
+require('dotenv').config();
 
-const prefix = process.env.PREFIX;
-
-const client = new Client({
-    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+const discord = require('discord.js');
+const client = new discord.Client({
+    intents: ["GUILDS", "GUILD_MESSAGES"],
 });
 
 // Codigo
 
-client.once("ready", (bot) => {
-    console.log(`Bot: ${bot.user.username}\nStatus: ${bot.presence.status}`);
-});
+client.commands = new discord.Collection();
+client.events = new discord.Collection();
 
-client.on("messageCreate",(msg)=>{
-    if (msg.author.bot)
-        return console.log(`Mensaje del Bot: ${msg.author.username}`);
-    
-    if (msg.content.startsWith(prefix)) 
-        return msg.reply(`Este es un comando del prefijo ${prefix}`);
-
-    msg.reply("Esto no es un comando");
-});
+["commandHandler","eventHandler"].forEach((file) => {
+    require(`./handlers/${file}`)(client, discord);
+})
 
 // Token
 
