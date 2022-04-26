@@ -1,7 +1,7 @@
 require('dotenv').config();
 const discord = require('discord.js');
 const client = new discord.Client({
-    intents: ["GUILDS", "GUILD_MESSAGES"],
+    intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS"],
 });
 
 // Codigo
