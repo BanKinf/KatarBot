@@ -11,6 +11,11 @@ module.exports = async (client, discord, message) => {
 
     if (command) command.execute(client, message, args, discord);
     if (message.content.startsWith(prefix)) {
-        if (!command) return message.channel.send("Este comando no existe");
+        embed = new discord.MessageEmbed()
+            .setColor("RED")
+            .setTitle("❌ | Comando no encontrado")
+            .setDescription(`"El comando ${cmd} no existe."`)
+            .setTimestamp()
+        if (!command) return message.channel.send({ embeds: [embed] });
     }
 };

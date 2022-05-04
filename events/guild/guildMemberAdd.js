@@ -21,12 +21,12 @@ module.exports = async (client, discord, member) => {
 
     const name = member.user.username;
 
-    if (name.length >= 16) {
+    if (name.length >= 9) {
         ctx.font = "bold 100px Sans";
         ctx.fillStyle = "#FF9B00";
         ctx.fillText(name, canvas.width / 2, canvas.height / 2 + 100);
     } else {
-        ctx.font = "bold 110px Sans";
+        ctx.font = "bold 80px Sans";
         ctx.fillStyle = "#FF9B00";
         ctx.fillText(name, canvas.width / 2, canvas.height / 2 + 100);
     }
